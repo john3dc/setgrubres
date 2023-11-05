@@ -57,7 +57,8 @@ if [ -f "$GRUB_CONFIG" ]; then
     add_line "GRUB_GFXMODE=${resolution}" "$GRUB_CONFIG"
     add_line "GRUB_GFXPAYLOAD_LINUX=keep" "$GRUB_CONFIG"
 
-    echo "Resolution set to ${resolution}."
+    echo "Resolution set to ${resolution} in /etc/default/grub."
+    grub-mkconfig -o /boot/grub/grub.cfg
 else
     echo "The file $GRUB_CONFIG does not exist."
 fi
